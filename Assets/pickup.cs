@@ -28,6 +28,7 @@ public class pickup : MonoBehaviour {
 			//Destroy (this.GetComponent<SphereCollider>());
 			//transform.rotation = player.transform.localRotation;
 			transform.position = player.transform.position-new Vector3(0f,0.25f,0f);
+			handcontroller.isholding = true;
 		}
 		else
 			if (handcontroller.lefthandgrabbing==false&&handcontroller.righthandgrabbing==false&&sticking==true)
@@ -53,15 +54,6 @@ public class pickup : MonoBehaviour {
 			sticking = true;
 
 		}
-		if (other.gameObject.CompareTag("Player")&&handcontroller.righthandgrabbing==true&&sticking==false)
-		{
-			//transform.parent = other.transform; //parent object to player
-			this.GetComponent<Rigidbody>().useGravity = false;
-			this.GetComponent<Rigidbody>().isKinematic = true;
-			this.transform.localScale = size;
-			Debug.Log("Sticking!");
-			sticking = true;
 
-		}
 	}
 }
